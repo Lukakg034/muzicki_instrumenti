@@ -1,6 +1,18 @@
+// import Accordion from "@mui/material/Accordion";
+// import AccordionSummary from "@mui/material/AccordionSummary";
+// import AccordionDetails from "@mui/material/AccordionDetails";
+// import Typography from "@mui/material/Typography";
+// import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import React, { useEffect } from "react";
+import "aos/dist/aos.css";
+import { useInView } from "react-intersection-observer";
 import "./LecturePiano.css";
+import AOS from "aos";
 
 export default function LecturePiano() {
+  useEffect(() => {
+    AOS.init({ duration: 400, offset: 200, delay: 100 });
+  }, []);
   return (
     <div className="lecture_content">
       <div className="lecture_header">
@@ -18,10 +30,10 @@ export default function LecturePiano() {
         <div className="content_wrapper">
           <ul className="list">
             {/* <li className="list_item">Drvenog rama</li> */}
-            <li className="list_item">Rezonantne daske</li>
-            <li className="list_item">Metalnog okvira sa razapetim žicama</li>
-            <li className="list_item">Klavijature sa mehanizmom čekića</li>
-            <li className="list_item">Sistema pedala</li>
+            <li className="list_item">Rezonantna daska</li>
+            <li className="list_item">Metalni okvir sa razapetim žicama</li>
+            <li className="list_item">Klavijatura sa mehanizmom čekića</li>
+            <li className="list_item">Sistem pedala</li>
           </ul>
           <figure className="sketchfab-embed-wrapper">
             <iframe
@@ -62,6 +74,7 @@ export default function LecturePiano() {
           težina samog klavira koja može biti između 250 i 500 kilograma.
         </p>
       </div>
+
       <p>
         Kako bi se izbeglo eventualno lomljenje ovog okvira, žice se grupišu i
         postavljaju ukršteno, pod uglom, kako bi se ujednačili smerovi sila
@@ -71,31 +84,48 @@ export default function LecturePiano() {
       </p>
 
       <h2>ŽICE KLAVIRA:</h2>
-      <p>
+      <p
+        className="text_content"
+        data-aos="fade-right"
+        data-aos-anchor-placement="center-left"
+      >
         Izvor zvuka klavira jesu čelične žice zakačene za okvir instrumenta.
         Kako bi se dobili visoki i niski tonovi na instrumentu, a ovo je pravilo
         koje generalno važi za sve žičane instrumente, žice su različite dužine.
         Drugim rečima, što je žica kraća, ton je viši, i što je žica duža, ton
-        je dublji. Naravno, dužina žice nije jedini element koji utiče na visinu
-        tona, i ako bi se pribeglo isključivo takvoj specifikaciji, instrument
-        bi bio dosta veći. Na primer, dok se kod visokih tonova zvuk dobija na
-        dužini žice od nekoliko centimetara ili nekoliko desetina centimetara,
-        tonovi najdublje oktave bi iziskivali dužinu žice od nekoliko metara ili
+        je dublji.
+      </p>
+      <p
+        className="text_content"
+        data-aos="fade-left"
+        data-aos-anchor-placement="top-center"
+      >
+        Naravno, dužina žice nije jedini element koji utiče na visinu tona, i
+        ako bi se pribeglo isključivo takvoj specifikaciji, instrument bi bio
+        dosta veći. Na primer, dok se kod visokih tonova zvuk dobija na dužini
+        žice od nekoliko centimetara ili nekoliko desetina centimetara, tonovi
+        najdublje oktave bi iziskivali dužinu žice od nekoliko metara ili
         desetina metara, što nije praktično. Kako bi se rešio ovakav problem,
         uzima se identična debljina žice od par milimetara koja se dalje omotava
         bakarnom niti. Na taj način, što su tonovi dublji, žica je duža ali je i
-        debljina omota oko žice veći. Obzirom da kratka žica, na primer iz
-        četvrte oktave daje slabiji zvuk u odnosu na dužu žicu iz velike oktave,
-        potrebno je dalje izjednačiti jačinu i trajanje tonova različitih
-        registara. Za najdublje tonove (od A2 do Fis1) koristi se jedna žica. Za
-        registar od G1 do Ais se koriste po dve žice, dok se za ostale tonove
-        (od H do c5) koristi po jedna žica (ukupno 228 žica). Žice koje se
-        nalaze u registrima koji zahtevaju po dve ili tri žice za jedan ton se
-        štimuju unisono. Na primer, za ton C iz velike oktave se obe žice
-        štimuju na visinu C.
+        debljina omota oko žice veći.
+      </p>
+      <p
+        className="text_content"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+      >
+        Obzirom da kratka žica, na primer iz četvrte oktave daje slabiji zvuk u
+        odnosu na dužu žicu iz velike oktave, potrebno je dalje izjednačiti
+        jačinu i trajanje tonova različitih registara. Za najdublje tonove (od
+        A2 do Fis1) koristi se jedna žica. Za registar od G1 do Ais se koriste
+        po dve žice, dok se za ostale tonove (od H do c5) koristi po jedna žica
+        (ukupno 228 žica). Žice koje se nalaze u registrima koji zahtevaju po
+        dve ili tri žice za jedan ton se štimuju unisono. Na primer, za ton C iz
+        velike oktave se obe žice štimuju na visinu C.
       </p>
       <h2>KLAVIJATURA</h2>
-      <p>
+      <p data-aos="flip-up">
         Prednji deo instrumenta, do izvođača, zauzima klavijatura po kojoj se
         svira, dok se iza nje nalazi sistem čekića. Dirke instrumenta, kojih ima
         88, su građene od drveta, ranije oblagane oplatom od slonove kosti, ali
@@ -104,22 +134,31 @@ export default function LecturePiano() {
         predstavljaju enharmonske polustepene (temperovane).
       </p>
       <h2>MEHANIZAM ČEKIĆA</h2>
-      <p>
+      <p data-aos="fade-up-left">
         Mehanizam čekića je srce instrumenta u pogledu dobijanja tona i
         predstavlja veoma precizne proračune i konstrukciju. Svaki čekić (kojih
         u klaviru ima koliko i žica) se sastoji od drvenog štapića čiji je kraj
         obložen filcom i koji pritiskom na dirku udara o žicu. Postoje dva
         standardna mehanizma koja se razliku po pitanju konstrukcije i
-        mogućnosti: • Nemačka mehanika (bečka mehanika) kod koje nakon pritiska
-        dirke, čekić udara o žicu i vraća u prvobitan položaj. Ovakav mehanizam
-        ne dozvoljava ponovno sviranje istog tona ukoliko se dirka mehaničkim
-        putem ne pusti, odnosno ne vrati u prvobitan položaj i ponovo pritisne.
-        • Engleska mehanika kod koje čekić nije u direktnoj vezi sa dirkom pa se
-        samim tim može dobiti isti ton čak i ako se dirka ne pusti potpuno.
-        Ovakav mehanizam se naziva i repeticiona mehanika.
+        mogućnosti:
+        <ul>
+          <li>
+            <strong> Nemačka mehanika </strong>(bečka mehanika) kod koje nakon
+            pritiska dirke, čekić udara o žicu i vraća u prvobitan položaj.
+            Ovakav mehanizam ne dozvoljava ponovno sviranje istog tona ukoliko
+            se dirka mehaničkim putem ne pusti, odnosno ne vrati u prvobitan
+            položaj i ponovo pritisne.
+          </li>
+          <li>
+            <strong> Engleska mehanika </strong>kod koje čekić nije u direktnoj
+            vezi sa dirkom pa se samim tim može dobiti isti ton čak i ako se
+            dirka ne pusti potpuno. Ovakav mehanizam se naziva i repeticiona
+            mehanika.
+          </li>
+        </ul>
       </p>
       <h2>PRIGUŠIVAČI</h2>
-      <p>
+      <p data-aos="zoom-in-left">
         Prigušivač predstavlja sastavni deo mehanizma a njegova uloga jeste da
         ne dozvoli mešanje zvukova. Kada se dirka pritisne, prigušivač se udalji
         od žice kako bi omogućio vibriranje žice nakon udara čekića o nju. Kada
@@ -128,27 +167,38 @@ export default function LecturePiano() {
       </p>
 
       <h2>MEHANIZAM PEDALA</h2>
-      <p>
+      <p data-aos="zoom-in-right">
         Sistem pedala i njihov broj zavisi od konstrukcije samog klavira.
         Koncertni i polukoncertni klaviri najčešće broje tri pedala dok mali
-        klavir – pianino ima (najčešće) dva pedala. 1. Desni pedal – forte pedal
-        ima za ulogu podizanje svih prigušivača sa svih žica unutar klavira.
-        Ovakvim mehanizmom se omogućuje žici da nastavi da zvuči iako se dirka
-        fizički otpusti i vrati u prvobitan položaj. Drugi naziv u vidu forte
-        pedala se odnosi na to da u trenutku udara čekića o žicu, sve žice
-        počiću da vibriraju, omogućujući alikvotama da dođu do izražaja čime se
-        sveukupan zvuk pojačava. 2. Levi pedal – piano pedal pomera celokupan
-        mehanizam (sa čekićima) par milimetara u desnu stranu čime čekić ne
-        udara dve, odnosno tri žice po tonu, već jednu, odnosno dve. Obzirom da
-        čekić udara manji broj žica i dobijeni ton zvuči tiše. 3. Srednji pedal
-        – zadržavajući pedal ne postoji na svim tipovima klavira, a po ulozi je
-        sličan levom pedalu i jedini je koji može imati tri položaja: • Početni,
-        u kome nema nikakav udeo u zvuku; • Pritisnuti, u kome noga pritiska
-        pedal u drugi položaj (kao što bi se pritisnuo levi ili desni pedal); •
-        “Zaglavljeni”, pri kome se pedal fizički nagazi i postavi u treći
-        položaj nakon koga izvođač ne mora naknadno da pritiska i otpušta pedal.
-        Njegova uloga je da zadrži prigušivače u odignutom položaju jedino onih
-        žica čije su dirke pritisnute (razlika u odnosu na desni pedal).
+        klavir – pianino ima (najčešće) dva pedala.
+        <ol>
+          <li>
+            Desni pedal – forte pedal ima za ulogu podizanje svih prigušivača sa
+            svih žica unutar klavira. Ovakvim mehanizmom se omogućuje žici da
+            nastavi da zvuči iako se dirka fizički otpusti i vrati u prvobitan
+            položaj. Drugi naziv u vidu forte pedala se odnosi na to da u
+            trenutku udara čekića o žicu, sve žice počiću da vibriraju,
+            omogućujući alikvotama da dođu do izražaja čime se sveukupan zvuk
+            pojačava.
+          </li>
+          <li>
+            Levi pedal – piano pedal pomera celokupan mehanizam (sa čekićima)
+            par milimetara u desnu stranu čime čekić ne udara dve, odnosno tri
+            žice po tonu, već jednu, odnosno dve. Obzirom da čekić udara manji
+            broj žica i dobijeni ton zvuči tiše.
+          </li>
+          <li>
+            Srednji pedal – zadržavajući pedal ne postoji na svim tipovima
+            klavira, a po ulozi je sličan levom pedalu i jedini je koji može
+            imati tri položaja: • Početni, u kome nema nikakav udeo u zvuku; •
+            Pritisnuti, u kome noga pritiska pedal u drugi položaj (kao što bi
+            se pritisnuo levi ili desni pedal); • “Zaglavljeni”, pri kome se
+            pedal fizički nagazi i postavi u treći položaj nakon koga izvođač ne
+            mora naknadno da pritiska i otpušta pedal. Njegova uloga je da
+            zadrži prigušivače u odignutom položaju jedino onih žica čije su
+            dirke pritisnute (razlika u odnosu na desni pedal).
+          </li>
+        </ol>
       </p>
     </div>
   );

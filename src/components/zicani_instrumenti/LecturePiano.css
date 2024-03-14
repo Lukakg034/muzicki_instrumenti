@@ -1,7 +1,8 @@
 .lecture_content {
-  width: 120rem;
+  width: 90rem;
   background: radial-gradient(#888, rgba(184, 199, 120, 0.504));
   color: #1e2529;
+  /* color: #95adf9; */
   margin: 0 auto;
   padding: 5rem 5rem;
   display: flex;
@@ -9,11 +10,12 @@
 }
 .lecture_header {
   display: flex;
-  /* justify-content: left; */
+  /*justify-content: left;
+  */
   height: 36rem;
-
-  background-image: url("../../../public/images/lectureImages/piano_title_large.jpg");
-  /* background-repeat: no-repeat; */
+  background-image: url("/images/lectureImages/piano_title_large.jpg");
+  /*background-repeat: no-repeat;
+  */
   background-position: center;
   background-size: cover;
 }
@@ -31,8 +33,11 @@ h2 {
   font-size: 3rem;
 }
 p {
+  width: 90%;
   font-size: 2.4rem;
+  text-align: justify;
 }
+
 .material {
   display: flex;
   flex-direction: column;
@@ -46,7 +51,7 @@ p {
   justify-content: space-around;
 }
 .list {
-  list-style: none;
+  /* list-style: none; */
   font-size: 2.2rem;
 }
 figure {
